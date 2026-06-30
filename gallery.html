@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Hutto ISD Special Olympics</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="images/hutto-isd.png" alt="Hutto ISD Logo">
+
+            <div class="logo-text">
+                <h2>Special Olympics</h2>
+                <span>Hutto ISD</span>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="sports.html">Sports</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+    </nav>
+
+</header>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+    <h1>Gallery</h1>
+    <p>Moments from our athletes, coaches, and Special Olympics events throughout the year.</p>
+</section>
+
+<!-- FEATURED SECTION -->
+<section class="content-block">
+    <div class="page-card">
+
+        <div class="gallery-feature">
+
+            <div class="featured-image">
+                <img src="images/image-placeholder.jpg" alt="Featured Event Photo">
+            </div>
+
+            <div class="featured-text">
+                <h2>Celebrating Our Athletes</h2>
+                <p>
+                    Our Special Olympics program is built around inclusion, teamwork, and joy.
+                    These moments highlight the hard work and dedication of our athletes throughout the year.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- GALLERY GRID -->
+<section class="content-block">
+    <div class="page-card">
+
+        <h2>Photo Gallery</h2>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img src="images/image-placeholder.jpg" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/image-placeholder.jpg" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/image-placeholder.jpg" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/image-placeholder.jpg" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/image-placeholder.jpg" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/image-placeholder.jpg" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/image-placeholder.jpg" alt="">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/image-placeholder.jpg" alt="">
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+            <img src="images/hutto-isd.png" alt="Hutto ISD Logo">
+
+            <div>
+                <h3>Special Olympics</h3>
+                <p>Hutto ISD</p>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="calendar.html">Calendar</a>
+            <a href="sports.html">Sports</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="resources.html">Resources</a>
+        </div>
+
+        <div class="footer-donate">
+
+            <h4>Support Our Program</h4>
+
+            <p>
+                Donations help provide equipment, transportation, and inclusive athletic opportunities.
+            </p>
+
+            <a href="donate.html" class="footer-donate-btn">Donate Now</a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Hutto ISD Special Olympics</p>
+    </div>
+
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const closeBtn = document.getElementById("lightboxClose");
+
+document.querySelectorAll(".gallery-item img").forEach(img => {
+    img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+    });
+});
+
+closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
+
+lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+        lightbox.style.display = "none";
+    }
+});
+</script>
+
+</body>
+</html>
