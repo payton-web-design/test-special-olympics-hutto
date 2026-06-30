@@ -16,6 +16,11 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: #333;
     background: #fff;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
 }
 
 /* ===========================
@@ -32,10 +37,33 @@ section,
 .mission,
 .donation,
 .signup,
-.delegation {
+.delegation,
+.content-block,
+.sports-intro,
+.sports-section,
+.sports-info,
+.resources-section,
+.resources-info {
     max-width: 1100px;
-    margin: 70px auto;
-    padding: 0 20px;
+    margin: 60px auto;
+    padding: 0 24px;
+}
+
+section h2 {
+    margin-bottom: 18px;
+}
+
+section h3 {
+    margin-bottom: 12px;
+}
+
+section p {
+    margin-bottom: 14px;
+    line-height: 1.7;
+}
+
+section p:last-child {
+    margin-bottom: 0;
 }
 
 /* ===========================
@@ -48,25 +76,11 @@ section,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 8%;
+    padding: 0 6%;
     box-shadow: 0 3px 12px rgba(0,0,0,.08);
     position: sticky;
     top: 0;
     z-index: 1000;
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 10px;
-    }
-
-    .nav-links {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
 }
 
 .logo {
@@ -76,7 +90,7 @@ section,
 }
 
 .logo img {
-    width: 95px;
+    width: 80px;
     height: auto;
     transition: transform 0.25s ease;
 }
@@ -94,28 +108,27 @@ section,
     font-family: 'Kanit', sans-serif;
     font-weight: 800;
     font-style: italic;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     color: #bb5211;
     line-height: 1;
 }
 
 .logo-text span {
     color: #666;
-    font-size: .9rem;
+    font-size: .85rem;
 }
-
-/* NAV LINKS */
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 35px;
+    gap: 28px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #444;
     font-weight: 600;
+    font-size: .95rem;
     position: relative;
 }
 
@@ -145,54 +158,52 @@ section,
 .hero {
     background: #bb5211;
     color: white;
-    min-height: 55vh;
+    min-height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 80px 20px;
+    padding: 70px 20px;
     max-width: 100%;
     margin: 0;
 }
 
 .hero-content {
-    max-width: 750px;
+    max-width: 720px;
 }
 
 .hero-content h1 {
-    font-size: 4rem;
-    margin-bottom: 30px;
+    font-size: 3.4rem;
+    line-height: 1.15;
+    margin-bottom: 24px;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin-bottom: 45px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    opacity: .95;
 }
-
-/* BUTTONS */
 
 .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 18px;
     flex-wrap: wrap;
 }
 
 .btn {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-.btn {
-    padding: 15px 34px;
+    padding: 14px 32px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
+    display: inline-block;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .btn-light {
@@ -205,6 +216,15 @@ section,
     color: white;
 }
 
+.page-header .btn {
+    margin-top: 22px;
+}
+
+.page-header .btn:hover {
+    background: #9e4510;
+    color: white;
+}
+
 /* ===========================
    IMAGE ROW (FULL WIDTH EDGE-TO-EDGE)
 =========================== */
@@ -212,7 +232,7 @@ section,
 .image-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0;
+    gap: 4px;
     margin: 0;
     max-width: 100%;
     padding: 0;
@@ -220,7 +240,7 @@ section,
 
 .image-row img {
     width: 100%;
-    height: 260px;
+    height: 240px;
     object-fit: cover;
     display: block;
 }
@@ -232,12 +252,20 @@ section,
 .mission-container {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 40px;
+}
+
+.mission-logo {
+    flex: 0 0 220px;
 }
 
 .mission-logo img {
-    height: 260px;
-    width: auto;
+    width: 100%;
+    height: auto;
+}
+
+.mission-text {
+    flex: 1;
 }
 
 .mission-text h2 {
@@ -245,26 +273,66 @@ section,
 }
 
 .mission-text p {
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 12px;
+    color: #444;
 }
 
 /* ===========================
-   FEATURE + DONATION
+   FEATURE + DONATION (shared two-col layout)
 =========================== */
 
-.feature-break,
+.feature-break {
+    display: flex;
+    justify-content: center;
+}
+
+.feature-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+}
+
+.feature-text {
+    flex: 1;
+}
+
+.feature-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.feature-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+    height: auto;
+    display: block;
+}
+
 .donation-container {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 36px;
 }
 
-.feature-image img,
 .donation-container img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 12px;
+    width: 200px;
+    flex-shrink: 0;
+    height: auto;
+    object-fit: contain;
+}
+
+.donation-text h3 {
+    margin-bottom: 8px;
+}
+
+.donation-text p {
+    color: #444;
+    line-height: 1.6;
 }
 
 /* ===========================
@@ -279,39 +347,67 @@ section,
 
 .split-image img {
     width: 100%;
-    height: 300px;
+    height: 280px;
     object-fit: cover;
     border-radius: 12px;
 }
 
 /* ===========================
-   SPORTS
+   SPORTS GRID (homepage + sports page shared)
 =========================== */
 
 .sports-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
 }
 
 .sport-card {
+    background: #fff;
     border: 1px solid #eee;
-    border-radius: 12px;
-    padding: 15px;
-    background: white;
-}
-
-.sport-card {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .sport-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.sport-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.sport-card h3 {
+    padding: 16px 16px 4px;
+    color: #bb5211;
+    margin-bottom: 4px;
+}
+
+.sport-card p {
+    padding: 0 16px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+.sport-card p:last-child {
+    padding-bottom: 16px;
+}
+
+.section-subtext {
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 24px;
 }
 
 /* ===========================
-   PHOTO GRID
+   PHOTO GRID (homepage)
 =========================== */
 
 .photo-feature-grid {
@@ -320,56 +416,75 @@ section,
     gap: 20px;
 }
 
+.photo-card {
+    cursor: pointer;
+}
+
 .photo-card img {
     width: 100%;
-    height: 220px;
+    height: 200px;
     object-fit: cover;
     border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.photo-card:hover img {
+    transform: scale(1.05);
+}
+
+.photo-card h3 {
+    margin-top: 12px;
+    font-size: 1.05rem;
+    text-align: center;
 }
 
 /* ===========================
-   DELEGATION
+   GENERIC CARD WRAPPER
 =========================== */
 
-.delegation-card {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.page-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    padding: 36px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.signup .page-card {
+    text-align: center;
 }
 
 /* ===========================
-   FOOTER (RESTORED ORIGINAL LAYOUT)
+   FOOTER
 =========================== */
 
 .footer {
     background: #1f1f1f;
     color: #fff;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
-    gap: 60px;
-
-    padding: 60px 8%;
-
-    max-width: 1400px;
+    gap: 50px;
+    padding: 56px 6%;
+    max-width: 1300px;
     margin: 0 auto;
-
     align-items: flex-start;
     text-align: left;
 }
 
-/* Brand */
 .footer-brand {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex: 1;
+    min-width: 200px;
 }
 
 .footer-brand img {
-    width: 70px;
+    width: 64px;
     height: auto;
 }
 
@@ -377,7 +492,7 @@ section,
     font-family: 'Kanit', sans-serif;
     font-weight: 800;
     font-style: italic;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin-bottom: 3px;
 }
 
@@ -386,7 +501,11 @@ section,
     color: #ccc;
 }
 
-/* Links */
+.footer-links {
+    flex: 1;
+    min-width: 140px;
+}
+
 .footer-links h4 {
     font-size: 1rem;
     margin-bottom: 15px;
@@ -404,7 +523,11 @@ section,
     color: #bb5211;
 }
 
-/* Donate */
+.footer-donate {
+    flex: 1.2;
+    min-width: 220px;
+}
+
 .footer-donate h4 {
     font-size: 1rem;
     margin-bottom: 15px;
@@ -414,7 +537,7 @@ section,
     font-size: 0.9rem;
     color: #ccc;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     max-width: 300px;
 }
 
@@ -422,7 +545,7 @@ section,
     display: inline-block;
     background: #bb5211;
     color: white;
-    padding: 10px 18px;
+    padding: 10px 20px;
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
@@ -434,7 +557,6 @@ section,
     transform: translateY(-2px);
 }
 
-/* Bottom bar */
 .footer-bottom {
     text-align: center;
     padding: 20px;
@@ -443,129 +565,21 @@ section,
     color: #aaa;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-    }
-}
-
-@media (max-width:900px){
-
-    .image-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .image-box {
-        height: 120px;
-        border-radius: 10px;
-    }
-
-}
-
 /* ===========================
-   FOOTER DIVIDER LINE
-=========================== */
-
-.footer-divider {
-    width: 1px;
-    background: #444;
-    height: 120px;
-    opacity: 0.6;
-}
-
-/* ===========================
-   RESPONSIVE
-=========================== */
-
-@media (max-width: 900px) {
-
-    .navbar {
-        flex-direction: column;
-        height: auto;
-        padding: 25px;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn {
-        width: 250px;
-        text-align: center;
-    }
-
-    .feature-break,
-    .donation-container,
-    .mission-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .image-split {
-        grid-template-columns: 1fr;
-    }
-
-    .photo-feature-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ===========================
-   CONSISTENT TEXT SPACING SYSTEM
-=========================== */
-
-section h2 {
-    margin-bottom: 20px;
-}
-
-section h3 {
-    margin-bottom: 12px;
-}
-
-section p {
-    margin-bottom: 14px;
-    line-height: 1.7;
-}
-
-/* extra breathing room for section blocks */
-section p:last-child {
-    margin-bottom: 0;
-}
-
-/* ===========================
-   CALENDAR PAGE (WORDPRESS FRIENDLY)
-=========================== */
-
-/* ===========================
-   CALENDAR HERO (FIXED)
+   PAGE HEADER
 =========================== */
 
 .page-header {
     text-align: center;
-    padding: 40px 20px 50px;
+    padding: 60px 20px 56px;
     background: #f7f7f7;
     border-bottom: 1px solid #e9e9e9;
     margin-top: 0;
 }
 
 .page-header h1 {
-    font-size: 2.6rem;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    margin-bottom: 12px;
     color: #1f1f1f;
     letter-spacing: -0.5px;
 }
@@ -573,39 +587,60 @@ section p:last-child {
 .page-header p {
     font-size: 1.05rem;
     color: #666;
-    max-width: 750px;
+    max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
 }
 
-/* SECTION WRAPPER */
-.content-block {
-    max-width: 1100px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
+/* ===========================
+   CONTENT BLOCK / GRID CARDS
+=========================== */
 
-/* SECTION TITLE AREA */
 .content-block h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 10px;
 }
 
 .content-block > p {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     color: #555;
     font-size: 1rem;
     max-width: 800px;
 }
 
-/* GRID (SAFE FOR WORDPRESS EDITING) */
-.event-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 22px;
+.highlight-section {
+    background: #fef6f1;
+    max-width: 100%;
+    padding: 50px 24px;
+    margin: 0;
 }
 
-/* CARD STYLE */
+.highlight-section.content-block h2,
+.highlight-section.content-block > p {
+    text-align: left;
+}
+
+.highlight-section.content-block > p {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.highlight-section > * {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.highlight-section .event-grid {
+    margin-top: 24px;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
 .event-block {
     background: #ffffff;
     border: 1px solid #eee;
@@ -615,16 +650,14 @@ section p:last-child {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* HOVER LIFT EFFECT (you wanted this earlier too) */
 .event-block:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
-/* TEXT INSIDE CARDS */
 .event-block h3 {
     margin-bottom: 10px;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: #bb5211;
 }
 
@@ -634,55 +667,9 @@ section p:last-child {
     line-height: 1.5;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .page-header {
-        padding: 60px 20px 30px;
-    }
-
-    .page-header h1 {
-        font-size: 2.2rem;
-    }
-
-    .event-grid {
-        gap: 15px;
-    }
-}
-
 /* ===========================
-   SPORTS PAGE HERO (matches calendar style)
+   SPORTS PAGE
 =========================== */
-
-.page-header {
-    text-align: center;
-    padding: 40px 20px 50px;
-    background: #f7f7f7;
-    border-bottom: 1px solid #e9e9e9;
-    margin-top: 0;
-}
-
-.page-header h1 {
-    font-size: 2.6rem;
-    margin-bottom: 10px;
-}
-
-.page-header p {
-    font-size: 1.05rem;
-    color: #666;
-    max-width: 750px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* ===========================
-   INTRO BOX (OUR ATHLETIC PROGRAM)
-=========================== */
-
-.sports-intro {
-    max-width: 1100px;
-    margin: 70px auto;
-    padding: 0 20px;
-}
 
 .intro-box {
     background: #ffffff;
@@ -702,79 +689,12 @@ section p:last-child {
     margin-bottom: 12px;
 }
 
-/* ===========================
-   SPORTS GRID (MAIN CARDS)
-=========================== */
-
-.sports-section {
-    max-width: 1100px;
-    margin: 70px auto;
-    padding: 0 20px;
-}
-
-.sports-section h2 {
-    margin-bottom: 20px;
-}
-
-.sports-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 22px;
-}
-
-/* SPORT CARD */
-.sport-card {
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* HOVER LIFT (important for consistency with homepage) */
-.sport-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-}
-
-/* IMAGE */
-.sport-card img {
-    width: 100%;
-    height: 170px;
-    object-fit: cover;
-    display: block;
-}
-
-/* TEXT */
-.sport-card h3 {
-    padding: 15px 15px 5px;
-    color: #bb5211;
-}
-
-.sport-card p {
-    padding: 0 15px 12px;
-    color: #444;
-    line-height: 1.5;
-}
-
-/* ===========================
-   HOW IT WORKS SECTION
-=========================== */
-
-.sports-info {
-    max-width: 1100px;
-    margin: 70px auto;
-    padding: 0 20px;
-}
-
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 20px;
 }
 
-/* INFO CARDS */
 .info-card {
     background: #fafafa;
     border: 1px solid #eee;
@@ -797,85 +717,63 @@ section p:last-child {
 }
 
 /* ===========================
-   RESPONSIVE FIXES
+   GALLERY
 =========================== */
 
-@media (max-width: 768px) {
-
-    .page-header h1 {
-        font-size: 2.2rem;
-    }
-
-    .intro-box {
-        padding: 22px;
-    }
-
-    .sport-card img {
-        height: 150px;
-    }
-}
-
-/* ===========================
-   GALLERY (FINAL CLEAN VERSION)
-=========================== */
-
-/* featured box layout (matches other pages) */
 .gallery-feature {
     display: flex;
-    gap: 30px;
+    gap: 36px;
     align-items: center;
 }
 
-/* featured image */
+.featured-image {
+    flex: 0 0 420px;
+}
+
 .featured-image img {
     width: 100%;
-    max-width: 450px;
     border-radius: 12px;
     object-fit: cover;
+    display: block;
 }
 
-/* wrapper matches other pages */
-.gallery-section {
-    max-width: 1100px;
-    margin: 70px auto;
-    padding: 0 20px;
+.featured-text {
+    flex: 1;
 }
 
-/* grid */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 20px;
 }
 
-/* card */
 .gallery-item {
+    width: 100%;
     aspect-ratio: 1 / 1;
-    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    border-radius: 12px;
+    position: relative;
     cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* hover lift */
 .gallery-item:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
-/* image fills square perfectly */
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.3s ease;
 }
 
-/* hover zoom */
 .gallery-item:hover img {
     transform: scale(1.06);
-    transition: transform 0.25s ease;
 }
 
 /* ===========================
@@ -888,7 +786,7 @@ section p:last-child {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.88);
     display: none;
     justify-content: center;
     align-items: center;
@@ -897,177 +795,32 @@ section p:last-child {
 }
 
 .lightbox img {
-    max-width: 90%;
-    max-height: 85%;
+    max-width: 92%;
+    max-height: 88%;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
 .lightbox-close {
     position: absolute;
-    top: 25px;
-    right: 35px;
-    font-size: 40px;
+    top: 20px;
+    right: 25px;
+    font-size: 38px;
     color: white;
     cursor: pointer;
     font-weight: bold;
 }
 
 /* ===========================
-   GALLERY FEATURE + GRID ALIGNMENT FIX
+   RESOURCES PAGE
 =========================== */
 
-.gallery-feature {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-}
-
-.featured-image img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 12px;
-}
-
-/* make grid match sports/calendar feel */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-/* square images (clean + consistent) */
-.gallery-item img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: transform 0.25s ease;
-}
-
-.gallery-item img:hover {
-    transform: scale(1.05);
-}
-
-/* ===========================
-   GALLERY WRAPPER (MATCHES SITE)
-=========================== */
-
-/* Featured layout fix */
-.gallery-feature {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
-
-.featured-image img {
-    width: 100%;
-    max-width: 450px;
-    border-radius: 12px;
-}
-
-/* ===========================
-   SQUARE GALLERY GRID
-=========================== */
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-/* SQUARE IMAGES */
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    cursor: pointer; /* 👈 shows clickable */
-}
-
-.gallery-item img {
-    width: 100%;
-    aspect-ratio: 1 / 1;   /* 👈 makes them square */
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-/* hover zoom */
-.gallery-item:hover img {
-    transform: scale(1.08);
-}
-
-/* ===========================
-   GENERIC PAGE CARD WRAPPER
-=========================== */
-
-.page-card {
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 14px;
-    padding: 40px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-}
-
-/* ===========================
-   GALLERY GRID (UNIFORM CARDS)
-=========================== */
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
-}
-
-/* the card itself */
-.gallery-item {
-    width: 100%;
-    aspect-ratio: 1 / 1;   /* makes it square */
-    overflow: hidden;
-    border-radius: 12px;
-    position: relative;
-    cursor: pointer;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.gallery-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-}
-
-/* image fills the square */
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   /* THIS is what prevents stretching */
-    display: block;
-}
-
-/* ===========================
-   RESOURCES PAGE (MATCH SITE STYLE)
-=========================== */
-
-.resources-section {
-    max-width: 1100px;
-    margin: 70px auto;
-    padding: 0 20px;
-}
-
-.resources-section h2 {
-    margin-bottom: 20px;
-}
-
-/* GRID */
 .resource-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 20px;
 }
 
-/* CARD (MATCHES sports + calendar feel) */
 .resource-card {
     background: #fff;
     border: 1px solid #eee;
@@ -1082,7 +835,6 @@ section p:last-child {
     box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
-/* TEXT */
 .resource-card h3 {
     color: #bb5211;
     margin-bottom: 10px;
@@ -1094,10 +846,9 @@ section p:last-child {
     margin-bottom: 15px;
 }
 
-/* BUTTON */
 .resource-btn {
     display: inline-block;
-    padding: 10px 16px;
+    padding: 10px 18px;
     background: #bb5211;
     color: white;
     text-decoration: none;
@@ -1111,23 +862,19 @@ section p:last-child {
     transform: translateY(-2px);
 }
 
-/* INFO SECTION (matches other white boxes) */
-.resources-info {
-    max-width: 1100px;
-    margin: 70px auto;
-    padding: 0 20px;
-}
-
 .info-block {
     background: #fff;
     border: 1px solid #eee;
     border-radius: 14px;
     padding: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.05);
 }
 
-/* spacing consistency */
+.info-block:last-child {
+    margin-bottom: 0;
+}
+
 .info-block h3 {
     margin-bottom: 10px;
 }
@@ -1139,12 +886,12 @@ section p:last-child {
 }
 
 /* ===========================
-   DONATE PAGE (MATCH SITE STYLE)
+   DONATE PAGE
 =========================== */
 
 .impact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 18px;
     margin-top: 20px;
 }
@@ -1163,31 +910,43 @@ section p:last-child {
     box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
-.page-header a.btn,
-.page-header .btn {
-    display: inline-block;
-    margin-top: 25px;
+.final-cta {
+    background: #fef6f1;
+    text-align: center;
+    padding: 60px 24px;
+    margin: 0;
 }
 
-.page-header .btn:hover {
-    background: #9e4510;
+.final-cta h2 {
+    margin-bottom: 12px;
+}
+
+.final-cta p {
+    max-width: 600px;
+    margin: 0 auto 28px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.donate-btn {
+    display: inline-block;
+    background: #bb5211;
     color: white;
-    transform: translateY(-2px);
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
     transition: 0.25s ease;
 }
 
-.page-header .btn {
-    transition: all 0.25s ease;
-}
-
-.page-header .btn:hover {
+.donate-btn:hover {
     background: #9e4510;
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 /* ===========================
-   CONTACT PAGE LAYOUT
+   CONTACT PAGE
 =========================== */
 
 .contact-container {
@@ -1196,22 +955,22 @@ section p:last-child {
     align-items: flex-start;
 }
 
-/* LEFT SIDE (FORM) */
-.contact-form {
-    flex: 1;
-}
-
-/* RIGHT SIDE (INFO) */
+.contact-form,
 .contact-info {
     flex: 1;
 }
 
-/* FORM STYLING */
 .contact-form form {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-top: 10px;
+    margin-top: 14px;
+}
+
+.contact-form label {
+    font-weight: 600;
+    font-size: .9rem;
+    color: #444;
 }
 
 .contact-form input,
@@ -1220,17 +979,19 @@ section p:last-child {
     border: 1px solid #ddd;
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    width: 100%;
 }
 
-/* BUTTON */
 .contact-form button {
     margin-top: 10px;
-    padding: 12px;
+    padding: 13px;
     border: none;
     border-radius: 25px;
     background: #bb5211;
     color: white;
     font-weight: 600;
+    font-size: 1rem;
     cursor: pointer;
     transition: 0.25s ease;
 }
@@ -1240,7 +1001,10 @@ section p:last-child {
     transform: translateY(-2px);
 }
 
-/* INFO CARDS */
+.contact-info > p {
+    margin-bottom: 10px;
+}
+
 .contact-card {
     background: #fff;
     border: 1px solid #eee;
@@ -1250,167 +1014,69 @@ section p:last-child {
     box-shadow: 0 4px 14px rgba(0,0,0,0.06);
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-    }
-}
-
 /* ===========================
-   SPONSOR IMAGE FIX
+   RESPONSIVE — TABLET
 =========================== */
 
-.donation-container img {
-    width: 220px;
-    height: auto;
-    object-fit: contain;
-}
+@media (max-width: 980px) {
 
-/* ===========================
-   HOME CARD FIX
-=========================== */
-
-.page-card {
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 14px;
-    padding: 35px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.photo-card {
-    cursor: pointer;
-}
-
-/* ONLY image moves */
-.photo-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
-}
-
-/* hover ONLY affects image */
-.photo-card:hover img {
-    transform: scale(1.05);
-}
-
-.feature-break {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-/* stop stretching vertically */
-.feature-text {
-    align-self: center;
-}
-
-/* control image height so it doesn't force the box tall */
-.feature-image img {
-    max-width: 450px;
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    display: block;
-}
-
-.feature-flex {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-@media (max-width: 768px) {
-    .page-card {
-        padding: 22px;
-    }
-}
-
-/* ===========================
-   FEATURE SECTION FIX (CLEAN)
-=========================== */
-
-.feature-break {
-    display: flex;
-    justify-content: center;
-}
-
-.feature-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-.feature-text {
-    flex: 1;
-}
-
-.feature-image {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.feature-image img {
-    width: 100%;
-    max-width: 450px;
-    border-radius: 12px;
-    height: auto;
-    display: block;
-}
-
-/* ===========================
-   DONATION FIX (STABLE)
-=========================== */
-
-.donation-container {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.donation-container img {
-    width: 220px;
-    height: auto;
-    object-fit: contain;
-}
-
-/* ===========================
-   REMOVE FOOTER GRAY LINE
-=========================== */
-
-.footer-divider {
-    display: none;
-}
-
-/* ===========================
-   FINAL MOBILE VERSION
-   Desktop-like layout on phones
-=========================== */
-
-@media (max-width: 768px) {
-
-    /* NAVBAR ONLY CHANGES */
     .navbar {
-        height: auto;
+        padding: 16px 5%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .photo-feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .image-row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .image-row img {
+        height: 160px;
+    }
+
+    .footer-container {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+}
+
+/* ===========================
+   RESPONSIVE — MOBILE
+=========================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
         flex-direction: column;
-        padding: 20px;
-        gap: 15px;
+        height: auto;
+        padding: 18px 20px;
+        gap: 14px;
+    }
+
+    .logo img {
+        width: 64px;
+    }
+
+    .logo-text h2 {
+        font-size: 1.4rem;
     }
 
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 18px;
+        gap: 14px 18px;
     }
 
+    .nav-links a {
+        font-size: .88rem;
+    }
 
-    /* GLOBAL SPACING */
     section,
     .image-row,
     .feature-break,
@@ -1420,228 +1086,326 @@ section p:last-child {
     .mission,
     .donation,
     .signup,
-    .delegation {
-        margin: 40px auto;
-        padding-left: 15px;
-        padding-right: 15px;
+    .delegation,
+    .content-block,
+    .sports-intro,
+    .sports-section,
+    .sports-info,
+    .resources-section,
+    .resources-info {
+        margin: 36px auto;
+        padding: 0 18px;
     }
 
-
-    /* HERO */
     .hero {
         padding: 50px 20px;
-        min-height: 45vh;
+        min-height: 40vh;
     }
-
 
     .hero-content h1 {
-        font-size: 2.2rem;
-        margin-bottom: 20px;
+        font-size: 2.1rem;
+        margin-bottom: 18px;
     }
-
 
     .hero-content p {
-        font-size: 1rem;
+        font-size: .98rem;
         line-height: 1.6;
+        margin-bottom: 28px;
     }
 
-
-    /* BUTTONS */
     .hero-buttons {
-        flex-direction: row;
-        gap: 10px;
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
     }
-
 
     .btn {
-        width: auto;
-        padding: 12px 20px;
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
     }
 
-
-
-    /* IMAGE STRIP */
     .image-row {
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
     }
-
 
     .image-row img {
-        height: 100px;
+        height: 140px;
     }
 
-
-
-    /* KEEP DESKTOP STYLE ROWS */
-
+    /* Homepage rows stay side-by-side on mobile, just scaled down */
     .mission-container,
-    .feature-break,
     .feature-flex,
     .donation-container {
         flex-direction: row;
-        align-items:center;
-        gap:20px;
+        align-items: center;
+        gap: 16px;
     }
 
-
-
-    /* TEXT + IMAGE BALANCE */
-
-    .feature-text,
-    .mission-text,
-    .donation-container > div {
-        flex:1;
-    }
-
-
-    .feature-image,
     .mission-logo {
-        flex:1;
+        flex: 0 0 90px;
     }
-
-
 
     .feature-image img,
-    .donation-container img,
-    .mission-logo img {
-
-        max-width:100%;
-        height:auto;
-
+    .donation-container img {
+        max-width: 130px;
     }
 
+    .feature-text h2,
+    .mission-text h2,
+    .donation-text h3 {
+        font-size: 1.05rem;
+    }
 
+    .feature-text p,
+    .mission-text p,
+    .donation-text p {
+        font-size: .85rem;
+        line-height: 1.5;
+    }
 
-    /* IMAGE SPLIT */
+    /* Gallery feature is its own page — fine to stack for readability */
+    .gallery-feature {
+        flex-direction: column;
+        text-align: center;
+        gap: 22px;
+    }
+
+    .featured-image {
+        flex: 0 0 auto;
+        max-width: 280px;
+        width: 100%;
+    }
 
     .image-split {
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
     }
-
 
     .split-image img {
-        height:160px;
+        height: 140px;
     }
 
-
-
-    /* SPORTS CARDS */
-
-    .sports-grid {
-        grid-template-columns:repeat(3,1fr);
-        gap:10px;
+    .sports-grid,
+    .resource-grid,
+    .event-grid,
+    .impact-grid,
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
     }
-
-
-    .sport-card {
-        padding:10px;
-    }
-
-
-    .sport-card img {
-        height:110px;
-    }
-
-
-
-    /* TEAM SPIRIT / COMPETITION / TRAINING */
 
     .photo-feature-grid {
-
-        grid-template-columns:repeat(3,1fr);
-        gap:10px;
-
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
     }
 
-
-    .photo-card {
-
-        padding:8px;
-
+    .sport-card img {
+        height: 120px;
     }
 
+    .sport-card h3 {
+        font-size: 1rem;
+        padding: 12px 12px 4px;
+    }
+
+    .sport-card p {
+        font-size: .85rem;
+        padding: 0 12px;
+    }
 
     .photo-card img {
-
-        height:120px;
-
+        height: 90px;
     }
-
 
     .photo-card h3 {
-
-        font-size:.85rem;
-
+        font-size: .78rem;
+        margin-top: 8px;
     }
-
-
-    .photo-card p {
-
-        font-size:.7rem;
-
-    }
-
-
-
-    /* GALLERY */
 
     .gallery-grid {
-
-        grid-template-columns:repeat(2,1fr);
-
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
-
-
-    .gallery-item {
-
-        aspect-ratio:1/1;
-
-    }
-
-
-
-
-    /* PAGE HEADERS */
 
     .page-header {
-
-        padding:35px 15px;
-
+        padding: 40px 18px;
     }
-
 
     .page-header h1 {
-
-        font-size:2rem;
-
+        font-size: 1.9rem;
     }
 
-
-
-    /* CARDS */
+    .page-header p {
+        font-size: .95rem;
+    }
 
     .page-card,
     .intro-box,
     .resource-card,
     .event-block,
-    .impact-card {
-
-        padding:20px;
-
+    .impact-card,
+    .info-card {
+        padding: 18px;
     }
 
-
-
-    /* FOOTER STAYS DIFFERENT */
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+    }
 
     .footer-container {
-
-        flex-direction:column;
-        gap:30px;
-        text-align:center;
-        align-items:center;
-
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        align-items: center;
+        padding: 44px 24px;
     }
 
+    .footer-donate p {
+        max-width: 100%;
+    }
+}
+
+/* ===========================
+   RESPONSIVE — SMALL PHONES
+=========================== */
+
+@media (max-width: 420px) {
+
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .sports-grid,
+    .resource-grid,
+    .event-grid,
+    .impact-grid,
+    .info-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .image-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===========================
+   HOMEPAGE — KEEP HORIZONTAL LAYOUT ON MOBILE
+   (everything else on the site stacks; the home page
+   stays closer to the desktop look, just scaled down)
+=========================== */
+
+@media (max-width: 768px) {
+
+    body.home-page .mission-container,
+    body.home-page .feature-flex,
+    body.home-page .donation-container {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        gap: 16px;
+    }
+
+    body.home-page .mission-logo {
+        flex: 0 0 90px;
+    }
+
+    body.home-page .mission-logo img {
+        width: 100%;
+    }
+
+    body.home-page .feature-image {
+        flex: 0 0 110px;
+        justify-content: flex-start;
+    }
+
+    body.home-page .feature-image img {
+        max-width: 110px;
+    }
+
+    body.home-page .donation-container img {
+        width: 90px;
+    }
+
+    body.home-page .feature-text h2,
+    body.home-page .mission-text h2 {
+        font-size: 1.25rem;
+    }
+
+    body.home-page .feature-text p,
+    body.home-page .mission-text p,
+    body.home-page .donation-text p {
+        font-size: .85rem;
+        line-height: 1.5;
+    }
+
+    /* image split — keep side by side, just shorter */
+    body.home-page .image-split {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    body.home-page .split-image img {
+        height: 130px;
+    }
+
+    /* sports + photo grids — keep 2 across, tight */
+    body.home-page .sports-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    body.home-page .photo-feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    body.home-page .photo-card img {
+        height: 80px;
+    }
+
+    body.home-page .photo-card h3 {
+        font-size: .72rem;
+        margin-top: 6px;
+    }
+
+    /* image row — keep all 4 across like desktop, just short */
+    body.home-page .image-row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    body.home-page .image-row img {
+        height: 70px;
+    }
+
+    /* hero buttons side by side on home page */
+    body.home-page .hero-buttons {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    body.home-page .btn {
+        width: auto;
+        flex: 1;
+        padding: 12px 14px;
+        font-size: .88rem;
+    }
+}
+
+@media (max-width: 420px) {
+
+    body.home-page .sports-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    body.home-page .image-row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    body.home-page .photo-feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
